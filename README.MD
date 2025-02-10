@@ -29,7 +29,7 @@ openssl help
 ### 2.1 Клонируйте репозиторий:
    - Используйте следующую команду для клонирования репозитория:
 ```bash
-git clone https://github.com/SBRDIGITAL/postgrocker_tls.git
+git clone https://github.com/SBRDIGITAL/postgrocker_ssl.git
 ```
 
 ## 3. Генерация SSL-сертификатов
