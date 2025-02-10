@@ -1,0 +1,7 @@
+*.key
+*.pem
+*.csr
+*.zip
+
+data
+certs

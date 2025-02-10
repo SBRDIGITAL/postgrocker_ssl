@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgrocker_tls_1  # Change container name
+    ports:
+      - "5438:5432"  # Change left(the external) port
+    environment:
+      POSTGRES_USER: admin  # Change your name
+      POSTGRES_PASSWORD: qwerty  # Change your password
+      POSTGRES_DB: newdb  # Change your db name
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./certs:/etc/ssl/postgres
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+    networks:
+      - postgres-cluster
+    command: [
+      "postgres",
+      "-c", "ssl=on",
+      "-c", "ssl_cert_file=/etc/ssl/postgres/server.pem",
+      "-c", "ssl_key_file=/etc/ssl/postgres/server.key",
+      "-c", "ssl_ca_file=/etc/ssl/postgres/ca.pem"
+    ]
+
+volumes:
+  postgres_data:
+
+networks:
+  postgres-cluster:

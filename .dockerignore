@@ -1,0 +1,5 @@
+*__init__.py
+*.zip
+README.MD
+.gitignore
+docker-compose.yml
